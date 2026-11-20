@@ -38,7 +38,7 @@ with st.chat_message("assistant"):
     {"role" :"assistant", "content" :  answer})
     
 if st.button("Clear chat"):
-st.session_state.chat_hist = []
-st.rerun()
+ st.session_state.chat_hist = []
+ st.rerun()
 
 
