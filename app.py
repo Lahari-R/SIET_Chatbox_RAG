@@ -8,7 +8,7 @@ st.caption("Created by Lahari")
 mykey = st.secrets["GROQ_API_KEY"]
 
 @st.cache_resource
-def intiate_rag():
+def initiate_rag():
   return 
 load_base("01_College_Information.pdf")
   
