@@ -52,8 +52,8 @@ def retrieve_context(question, embed_model, chunks, index, num_chunks=3):
   background = ""
   for i in vec_indices[0]: 
     if i != -1:
-    background += chunks[i] + "\n\n"
-  return background
+      background += chunks[i] + "\n\n"
+      return background
 
   #Ask:
   def ask_rag (question, embed_model, chunks, index, api_key, num_chunks, model_name = "openai/gpt-oss-120b"):
