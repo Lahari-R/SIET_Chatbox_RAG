@@ -22,11 +22,11 @@ def create_chunks(full_text, chunksize = 500, overlap=100):
     chunk = full_text[start:end]    #[0:500]            [400:900]         [800:1300]
     if chunk.strip():
       chunks.append(chunk)
-    start = chunksize - overlap   #500 - 100 = 400     900-100=800       1300-100=1200
+    start = chunksize - overlap   #500-100 = 400     900-100=800       1300-100=1200
   return chunks
 
 #Embedding:
-def build_vectors(chunks,model_name = "all-MiniLM-L6-v2"):
+def build_vectors(chunks, model_name = "all-MiniLM-L6-v2"):
   embed_model = SentenceTransformer(model_name)
   embed_vectors = embed_model.encode(chunks, convert_to_numpy =True)
   faiss.normalize_L2(embed_vectors)
@@ -41,7 +41,7 @@ def load_base (pdf_path= "01_College_Information.pdf"):
   return index, embed_model, chunks
 
 #retrieve
-def retrieve_context(question,embed_model, chunks, index, num_chunks=3):
+def retrieve_context(question, embed_model, chunks, index, num_chunks=3):
   if not question.strip():
     raise ValueError("Question cannot be blank")
   if num_chunks < 1:
